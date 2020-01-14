@@ -2,12 +2,18 @@
 
 set -euo pipefail
 
+set -x
 cd hello-world
 cmake .
-make
+make "$@"
 cd ..
 
 cd student/build
 cmake ..
-make
+make "$@"
+cd ../..
+
+cd use-lib
+cmake .
+make "$@"
 cd ..
